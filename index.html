@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Icebox Rewards Program</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+        <div id="wrapper">
+	    <body>
+                <div id="Welcome"></div>
+                <div id="loginarea">
+                    <input placeholder="Enter Email" id="useremail" type="text">
+                    <input placeholder="Enter Password" id="userpsswd" type="text">
+                    <button id="loginuser">Login</button>
+                    <button id="applybutton" onclick="document.getElementById('applyfields').style.display = 'block'">Apply</button><br>
+                    <div id="applyfields">
+                        First Name: <input placeholder="Enter First Name" id="fname" type="text" required>
+                        Last Name: <input placeholder="Enter Last Name" id="lname" type="text" required>
+                        Email: <input placeholder="Enter Email" id="email" type="email" required>
+                        Password: <input placeholder="Enter Password" id="passwd" type="password" required>
+                        <button id="enteruserinfo" onclick="document.getElementById('applyfields').style.display = 'none'">Enter</button><br>
+                    </div> 
+                </div>
+		<h1>Icebox Rewards Program</h1>
+
+                <div id="inputwrapper">
+		    <input placeholder="Enter name here" id="new_member_name" type="text">
+                    <input placeholder="Enter email here" id="new_member_email" type="text">
+                    <input placeholder="Enter phone here" id="new_member_phone" type="text">
+                    <input placeholder="Enter birthday here" id="new_member_birthday" type="text">
+                    <input placeholder="Enter zipcode here" id="new_member_zipcode" type="text">
+                    <input placeholder="Enter rewards level here" id="new_member_level" type="text">
+                </div>
+		<button id="register_new_member">Enter</button>
+                
+		<!--<div id="the_built_sandwich"></div>-->
+                <div id="editbox"></div>
+
+		<div id="listwrapper">
+                    <br>
+                    <p id="editinfo"> Double Click Items to Edit </p>
+		    <ol id="members"></ol>
+		</div>
+		
+                <!-- <ol id="database"></ol> -->
+
+		<script type="text/javascript" src="app.js"></script>
+	    </body>
+        </div>
+</html>

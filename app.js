@@ -147,7 +147,7 @@ var editThing = function(editedName, email, phone, birthday, zipcode, level, ite
 // starts like get or delete, but sends modified data to the exact url and the server replaces it like a post. 
 //
 //    database code: UPDATE table SET n=?, b=? WHERE id = ?;
-
+ 
 
 // document.getElementById("ingredient_input").value = '';
 //

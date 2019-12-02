@@ -1,7 +1,7 @@
 
 //var MEMBERS = {}
 var loadallthedata = function () {
-    fetch("http://localhost:8080/iceboxrewards",{
+    fetch("https://iceboxrewards.herokuapp.com/",{
         //credentials: "include"
     }).then(function (response) {
 	console.log("server responded.");
@@ -95,7 +95,7 @@ loginuser.onclick = function () {
     var userpsswd = document.querySelector("#userpsswd").value;
     var bodystr = "email=" + encodeURIComponent(email);
     bodystr += "&crypto=" + encodeURIComponent(userpsswd);
-    fetch("http://localhost:8080/users", {
+    fetch("https://iceboxrewards.herokuapp.com/users", {
         //credentials: "include", 
         method: "PUT", 
         body: bodystr,
@@ -128,7 +128,7 @@ applyuser.onclick = function () {
         bodystr += "&lname=" + encodeURIComponent(lname);
         bodystr += "&email=" + encodeURIComponent(email);
         bodystr += "&crypto=" + encodeURIComponent(password);
-    fetch("http://localhost:8080/users", {
+    fetch("https://iceboxrewards.herokuapp.com/users", {
         //credentials: "include",
         method: "POST",
         body: bodystr,
@@ -163,7 +163,7 @@ SendinfoButton.onclick = function () {
 
         // bodystr += "thing="+encodeURIComponent( otherinput );
     // ...
-    	fetch("http://localhost:8080/iceboxrewards", {
+    	fetch("https://iceboxrewards.herokuapp.com/", {
         //credentials: "include",
         method: "POST",
         body: bodystr,
@@ -176,7 +176,7 @@ SendinfoButton.onclick = function () {
 // DELETE GOES HERE
 
 var deleteMembers = function( itemID ) {
-    fetch( "http://localhost:8080/iceboxrewards/" + itemID, {
+    fetch( "https://iceboxrewards.herokuapp.com/" + itemID, {
         //credentials: "include",
         method: "DELETE"
     }).then(function( response ) {
@@ -192,7 +192,7 @@ var editThing = function(editedName, email, phone, birthday, zipcode, level, ite
     bodystr += "&zipcode=" + encodeURIComponent(zipcode);
     bodystr += "&level=" + encodeURIComponent(level);
 
-    fetch("http://localhost:8080/iceboxrewards/" + item.rowid, {
+    fetch("https://iceboxrewards.herokuapp.com/" + item.rowid, {
         //credentials: "include",
         method: "PUT", 
         body: bodystr, 

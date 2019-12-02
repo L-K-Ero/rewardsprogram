@@ -119,7 +119,14 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(bytes("Not found.", "utf-8"))
 
 def run():
-    listen = ("localhost", 8080)
+    db = ItemsDB()
+    db.createTable()
+    db = None
+    port = 8080
+    if len(sys.argv) > 1:
+        port = int(sys.argv[1])
+        
+    listen = ("0.0.0.0", port)
     server = HTTPServer(listen, MyRequestHandler)
     print("working")
     server.serve_forever()

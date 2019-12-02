@@ -1,7 +1,7 @@
 
 //var MEMBERS = {}
 var loadallthedata = function () {
-    fetch("http://localhost:8080/iceboxrewards").then(function (response) {
+    fetch("https://iceboxrewards.herokuapp.com/").then(function (response) {
 	console.log("server responded.");
 	response.json().then(function (data) {
 	    console.log("data recieved from server:", data);
@@ -107,7 +107,7 @@ SendinfoButton.onclick = function () {
 
         // bodystr += "thing="+encodeURIComponent( otherinput );
     // ...
-    	fetch("http://localhost:8080/iceboxrewards", {
+    	fetch("https://iceboxrewards.herokuapp.com/", {
         method: "POST",
         body: bodystr,
         headers: {"Content-Type":"application/x-www-form-urlencoded"}
@@ -119,7 +119,7 @@ SendinfoButton.onclick = function () {
 // DELETE GOES HERE
 
 var deleteMembers = function( itemID ) {
-    fetch( "http://localhost:8080/iceboxrewards/" + itemID, {
+    fetch( "https://iceboxrewards.herokuapp.com/" + itemID, {
         method: "DELETE"
     }).then(function( response ) {
         loadallthedata(); // based on the fact that i will make the refresh a function. 
@@ -134,7 +134,7 @@ var editThing = function(editedName, email, phone, birthday, zipcode, level, ite
     bodystr += "&zipcode=" + encodeURIComponent(zipcode);
     bodystr += "&level=" + encodeURIComponent(level);
 
-    fetch("https://evening-river-09442.herokuapp.com/" + item.rowid, {
+    fetch("https://iceboxrewards.herokuapp.com/" + item.rowid, {
         DATABASE_URL = os.nviron['DATABASE_URL']
         method: "PUT", 
         body: bodystr, 

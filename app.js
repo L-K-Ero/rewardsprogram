@@ -135,7 +135,6 @@ var editThing = function(editedName, email, phone, birthday, zipcode, level, ite
     bodystr += "&level=" + encodeURIComponent(level);
 
     fetch("https://iceboxrewards.herokuapp.com/" + item.rowid, {
-        DATABASE_URL = os.nviron['DATABASE_URL']
         method: "PUT", 
         body: bodystr, 
         headers: {"Content-Type":"application/x-www-form-urlencoded"}

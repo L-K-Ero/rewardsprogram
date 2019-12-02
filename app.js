@@ -1,9 +1,7 @@
 
 //var MEMBERS = {}
 var loadallthedata = function () {
-    fetch("https://iceboxrewards.herokuapp.com/",{
-        //credentials: "include"
-    }).then(function (response) {
+    fetch("http://localhost:8080/iceboxrewards").then(function (response) {
 	console.log("server responded.");
 	response.json().then(function (data) {
 	    console.log("data recieved from server:", data);
@@ -85,62 +83,8 @@ var loadallthedata = function () {
 	});
 });
 };
-// here goes logic to do login and afterwards show data. 
-//
 
-//loadallthedata();
-var loginuser = document.querySelector("#loginuser");
-loginuser.onclick = function () {
-    var email = document.querySelector("#useremail").value;
-    var userpsswd = document.querySelector("#userpsswd").value;
-    var bodystr = "email=" + encodeURIComponent(email);
-    bodystr += "&crypto=" + encodeURIComponent(userpsswd);
-    fetch("https://iceboxrewards.herokuapp.com/users", {
-        //credentials: "include", 
-        method: "PUT", 
-        body: bodystr,
-        headers: {"Content-Type":"application/x-www-form-urlencoded"}
-        }).then(function (response) {
-        if (response.ok === false) { alert("Login Failed, check your information.");} else {
-            var loginarea = document.querySelector("#loginarea");
-    
-            loginarea.parentNode.removeChild(loginarea);
-            var hellow = document.querySelector("#Welcome");
-            hellow.innerHTML = "Welome back";
-            document.getElementById("listwrapper").style.display = "block";
-            document.getElementById("inputwrapper").style.display = "block"; 
-            document.getElementById("register_new_member").style.display = "block";
-        loadallthedata();}
-        
-	//document.getElementByID("ingredient_input").value = '';
-});
-};
-
-
-var applyuser = document.querySelector("#enteruserinfo");
-applyuser.onclick = function () {
-    var fname = document.querySelector("#fname").value;
-    var lname = document.querySelector("#lname").value;
-    var email = document.querySelector("#email").value;
-    var password = document.querySelector("#passwd").value;
-
-        var bodystr = "fname=" + encodeURIComponent(fname);
-        bodystr += "&lname=" + encodeURIComponent(lname);
-        bodystr += "&email=" + encodeURIComponent(email);
-        bodystr += "&crypto=" + encodeURIComponent(password);
-    fetch("https://iceboxrewards.herokuapp.com/users", {
-        //credentials: "include",
-        method: "POST",
-        body: bodystr,
-        headers: {"Content-Type":"application/x-www-form-urlencoded"}
-    }).then(function (response) {
-        if (response.ok === false) {
-            alert("Registration Failed, check your information.");
-        } else{ 
-            alert("Successfully Registered, you can now log in.");}
-    });
-	//document.getElementByID("ingredient_input").value = '';
-};
+loadallthedata();
 
 
 var SendinfoButton = document.querySelector("#register_new_member");
@@ -163,8 +107,7 @@ SendinfoButton.onclick = function () {
 
         // bodystr += "thing="+encodeURIComponent( otherinput );
     // ...
-    	fetch("https://iceboxrewards.herokuapp.com/", {
-        //credentials: "include",
+    	fetch("http://localhost:8080/iceboxrewards", {
         method: "POST",
         body: bodystr,
         headers: {"Content-Type":"application/x-www-form-urlencoded"}
@@ -176,8 +119,7 @@ SendinfoButton.onclick = function () {
 // DELETE GOES HERE
 
 var deleteMembers = function( itemID ) {
-    fetch( "https://iceboxrewards.herokuapp.com/" + itemID, {
-        //credentials: "include",
+    fetch( "http://localhost:8080/iceboxrewards/" + itemID, {
         method: "DELETE"
     }).then(function( response ) {
         loadallthedata(); // based on the fact that i will make the refresh a function. 
@@ -192,8 +134,8 @@ var editThing = function(editedName, email, phone, birthday, zipcode, level, ite
     bodystr += "&zipcode=" + encodeURIComponent(zipcode);
     bodystr += "&level=" + encodeURIComponent(level);
 
-    fetch("https://iceboxrewards.herokuapp.com/" + item.rowid, {
-        //credentials: "include",
+    fetch("https://evening-river-09442.herokuapp.com/" + item.rowid, {
+        DATABASE_URL = os.nviron['DATABASE_URL']
         method: "PUT", 
         body: bodystr, 
         headers: {"Content-Type":"application/x-www-form-urlencoded"}

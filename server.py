@@ -1,7 +1,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from urllib.parse import parse_qs
+from urllib.parse import urlparse, parse_qs
 from ItemDatabase import ItemsDB
 import json
+import sys
 
 
 class MyRequestHandler(BaseHTTPRequestHandler):
